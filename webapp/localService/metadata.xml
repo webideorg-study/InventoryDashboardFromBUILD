@@ -1,0 +1,57 @@
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema Namespace="7f037ce1658d661710f8781b" xml:lang="en" sap:schema-version="0000" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+			<EntityContainer Name="7f037ce1658d661710f8781b_Entities" m:IsDefaultEntityContainer="true">
+				<EntitySet Name="ToysSet" EntityType="7f037ce1658d661710f8781b.Toys" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+				<AssociationSet Name="ToysPartOfParts" Association="7f037ce1658d661710f8781b.ToysPartOfParts" sap:creatable="true" sap:updatable="true"
+					sap:deletable="true">
+					<End EntitySet="ToysSet" Role="FromRole_ToysPartOfParts"/>
+					<End EntitySet="PartsSet" Role="ToRole_ToysPartOfParts"/>
+				</AssociationSet>
+				<EntitySet Name="PartsSet" EntityType="7f037ce1658d661710f8781b.Parts" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+			</EntityContainer>
+			<EntityType Name="Toys">
+				<Key>
+					<PropertyRef Name="ID"/>
+				</Key>
+				<Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+				<Property Name="Images" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Images"/>
+				<Property Name="Name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Name"/>
+				<Property Name="Quanity" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Quanity"/>
+				<Property Name="Units" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Units"/>
+				<Property Name="Description" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Description"/>
+				<Property Name="Demand" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Demand"/>
+				<NavigationProperty Name="PartOf" Relationship="7f037ce1658d661710f8781b.ToysPartOfParts" FromRole="FromRole_ToysPartOfParts"
+					ToRole="ToRole_ToysPartOfParts"/>
+			</EntityType>
+			<Association Name="ToysPartOfParts">
+				<End Type="7f037ce1658d661710f8781b.Toys" Multiplicity="1" Role="FromRole_ToysPartOfParts"/>
+				<End Type="7f037ce1658d661710f8781b.Parts" Multiplicity="*" Role="ToRole_ToysPartOfParts"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_ToysPartOfParts">
+						<PropertyRef Name="ID"/>
+					</Principal>
+					<Dependent Role="ToRole_ToysPartOfParts">
+						<PropertyRef Name="___FK_539e2ccd0c38224a0c8a81df"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityType Name="Parts">
+				<Key>
+					<PropertyRef Name="ID"/>
+				</Key>
+				<Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+				<Property Name="Name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Name"/>
+				<Property Name="Description" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Description"/>
+				<Property Name="Available" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Available"/>
+				<Property Name="Demand" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Demand"/>
+				<Property Name="Unit" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Unit"/>
+				<Property Name="Link" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Link"/>
+				<Property Name="Images" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Images"/>
+				<Property Name="___FK_539e2ccd0c38224a0c8a81df" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true"
+					sap:label="From.Toys"/>
+			</EntityType>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

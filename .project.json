@@ -1,0 +1,10 @@
+{
+	"dataBinding": {
+		"/webapp/view/1472700396089_S0.view.xml": {
+			"entitySet": ""
+		},
+		"/webapp/view/1472700396090_S1.view.xml": {
+			"entitySet": "/ToysSet"
+		}
+	}
+}

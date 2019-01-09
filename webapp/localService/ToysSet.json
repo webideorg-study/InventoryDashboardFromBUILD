@@ -1,0 +1,73 @@
+[{
+	"ID": "E1",
+	"Images": "/webapp/localService/assets/drone.png",
+	"Name": "Drone",
+	"Quanity": 5000,
+	"Units": "units",
+	"Description": "",
+	"Demand": 4500
+}, {
+	"ID": "E2",
+	"Images": "/webapp/localService/assets/flyingcar.png",
+	"Name": "Flying Car",
+	"Quanity": 980,
+	"Units": "units",
+	"Description": "",
+	"Demand": 1200
+}, {
+	"ID": "E3",
+	"Images": "/webapp/localService/assets/jetpack.png",
+	"Name": "JetPack",
+	"Quanity": 3500,
+	"Units": "units",
+	"Description": "",
+	"Demand": 3500
+}, {
+	"ID": "E4",
+	"Images": "/webapp/localService/assets/virtualcamera.png",
+	"Name": "Virtual Camera",
+	"Quanity": 700,
+	"Units": "units",
+	"Description": "",
+	"Demand": 1000
+}, {
+	"ID": "E5",
+	"Images": "/webapp/localService/assets/supesonic_headphones.png",
+	"Name": "SuperSonic Headphone",
+	"Quanity": 3000,
+	"Units": "units",
+	"Description": "",
+	"Demand": 2000
+}, {
+	"ID": "E6",
+	"Images": "/webapp/localService/assets/robot.png",
+	"Name": "Robot",
+	"Quanity": 2000,
+	"Units": "units",
+	"Description": "",
+	"Demand": 2000
+}, {
+	"ID": "E7",
+	"Images": "/webapp/localService/assets/Satelllite.png",
+	"Name": "Satellite",
+	"Quanity": 3000,
+	"Units": "units",
+	"Description": "",
+	"Demand": 2000
+}, {
+	"ID": "E8",
+	"Images": "/webapp/localService/assets/Rocket.png",
+	"Name": "Rocket",
+	"Quanity": 2000,
+	"Units": "units",
+	"Description": "",
+	"Demand": 2500
+}, {
+	"ID": "E9",
+	"Images": "/webapp/localService/assets/Hovercraft.png",
+	"Name": "Hovercraft",
+	"Quanity": 1000,
+	"Units": "units",
+	"Description": "",
+	"Demand": 700
+}]
