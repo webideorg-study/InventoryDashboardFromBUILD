@@ -1,0 +1,56 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" Version="1.0">
+	<edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="2.0">
+		<Schema xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices"
+			xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm"
+			Namespace="codejam.toyspace.services.api">
+			<EntityType Name="SetsType">
+				<Key>
+					<PropertyRef Name="ID"/>
+				</Key>
+				<Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="36"/>
+				<Property Name="Images" Type="Edm.String" MaxLength="256"/>
+				<Property Name="Name" Type="Edm.String" MaxLength="256"/>
+				<Property Name="Quantity" Type="Edm.Decimal" Precision="10" Scale="2"/>
+				<Property Name="Units" Type="Edm.String" MaxLength="36"/>
+				<Property Name="Description" Type="Edm.String" MaxLength="2147483647"/>
+				<Property Name="Demand" Type="Edm.Decimal" Precision="10" Scale="2"/>
+				<Property Name="Status" Type="Edm.String" MaxLength="36"/>
+				<NavigationProperty Name="Parts" Relationship="codejam.toyspace.services.api.PartOfType" FromRole="SetsPrincipal" ToRole="PartsDependent"/>
+			</EntityType>
+			<EntityType Name="PartsType">
+				<Key>
+					<PropertyRef Name="ID"/>
+				</Key>
+				<Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="36"/>
+				<Property Name="Name" Type="Edm.String" MaxLength="256"/>
+				<Property Name="Description" Type="Edm.String" MaxLength="2147483647"/>
+				<Property Name="Available" Type="Edm.Decimal" Precision="10" Scale="2"/>
+				<Property Name="Demand" Type="Edm.Decimal" Precision="10" Scale="2"/>
+				<Property Name="Unit" Type="Edm.String" MaxLength="36"/>
+				<Property Name="Link" Type="Edm.String" MaxLength="256"/>
+				<Property Name="Images" Type="Edm.String" MaxLength="256"/>
+				<Property Name="ToysID" Type="Edm.String" MaxLength="36"/>
+			</EntityType>
+			<Association Name="PartOfType">
+				<End Type="codejam.toyspace.services.api.SetsType" Role="SetsPrincipal" Multiplicity="1"/>
+				<End Type="codejam.toyspace.services.api.PartsType" Role="PartsDependent" Multiplicity="*"/>
+				<ReferentialConstraint>
+					<Principal Role="SetsPrincipal">
+						<PropertyRef Name="ID"/>
+					</Principal>
+					<Dependent Role="PartsDependent">
+						<PropertyRef Name="ToysID"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityContainer Name="api" m:IsDefaultEntityContainer="true">
+				<EntitySet Name="Sets" EntityType="codejam.toyspace.services.api.SetsType"/>
+				<EntitySet Name="Parts" EntityType="codejam.toyspace.services.api.PartsType"/>
+				<AssociationSet Name="PartOf" Association="codejam.toyspace.services.api.PartOfType">
+					<End Role="SetsPrincipal" EntitySet="Sets"/>
+					<End Role="PartsDependent" EntitySet="Parts"/>
+				</AssociationSet>
+			</EntityContainer>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

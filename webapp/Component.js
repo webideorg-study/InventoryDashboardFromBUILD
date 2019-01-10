@@ -7,8 +7,14 @@ sap.ui.define([
 ], function (UIComponent, Device, models, ListSelector, errorHandling) {
 	"use strict";
 
-	var navigationWithContext = {
+/*	var navigationWithContext = {
 		"ToysSet": {
+			"1472700396090_S1": ""
+		}
+	};*/
+	
+	var navigationWithContext = {
+		"Sets": {
 			"1472700396090_S1": ""
 		}
 	};
